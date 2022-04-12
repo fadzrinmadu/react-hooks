@@ -1,0 +1,68 @@
+/*
+ * Apa itu ?
+ * Kenapa pake ?
+ * Kapan harus pake ?
+ * Bagaimana pake ?
+ */
+
+=> React Hook, fungsi yang disediakan react untuk mempermudah menggunakan state dan fitur seperti lifecycle method
+   context dll di functional component.
+
+=> React.useState(), untuk membuat sebuah state atau penyimpanan data untuk menyimpan data pada component
+
+  Kapan menggunakan useState,
+    - Ketika kita mau mengontrol perubahan pada component
+  Perbedaan antara penggunaan useState dan variable biasa di react,
+    - kalau terjadi perubahan pada state maka component akan di re-render ulang, kalau variable tidak
+    - kalau menggunakan state kita jadi bisa mengontrol perubahan komponent berdasarkan state, kalau variable tidak
+  Kenapa state perlu diubah menggunakan fungsi ubah state,
+    - karena nilai pada state itu immutable, tidak bisa diubah langsung
+    - ketika statenya nilainya diubah langsung, maka ketika statenya diakses dia akan mengembalikkan nilai awalnya
+  Ketika melakukan perubahan pada state,
+    - nilai yang kita ubah nantinya akan dibandingkan dengan nilai awalnya
+    - jika berbeda maka statenya akan diubah dan component akan di re-render ulang
+
+=> React.useReducer(), untuk menyimpan dan memperbarui state sama seperti useState tapi state yang disimpan bisa diakses
+   dari component lain
+
+  Kenapa menggunakan useReducer,
+    - Karena saat menggunakan useReducer kita bisa membuat sebuah fungsi yang lebih kompleks ketika berkerja dengan state
+  Kapan menggunakan useReducer,
+    - kalau state yang diolah banyak
+    - ada kode yang perlu meng-update beberapa state sekaligus
+    - ada computed-state (state yang nilainya tergantung state lain)
+    - ketika mempunyai feature yang alurnya kompleks, seperti login dengan beberapa tahap seperti memasukan email & password,
+      memasukkkan kode ott
+  Behavior dari useReducer,
+    - tipe data pada reducer yang disimpan berupa object atau array
+    - data yang disimpan bukan didalam component tapi diglobal
+
+=> React.useEffect(), fungsi yang berjalan setiap komponen di re-render,
+
+  Kapan menggunakan useEffect,
+    - ketika fetch data dari API
+
+  Behavior dari useEffect,
+    - jika argument kedua tidak diisi, maka fungsi akan dijalankan setiap komponen di re-render
+    - jika argumen kedua diisi dengan array kosong [], maka fungsi akan dijalankan sekali setelah komponen di render
+    - jika argumen kedua diisi dengan array depedency, maka setiap nilai depedencynya berubah maka fungsi akan dijalankan.
+
+=> React.useRef(), fungsi yang sama seperti useState, tapi ketika nilainya diubah tidak akan merender ulang komponen
+
+  Kapan menggunakan useRef,
+    - ketika merubah nilai pada input form
+
+  Behavior dari useRef,
+
+=> React.useLayoutEffect(), fungsi yang sama seperti useEffect, tetapi fungsi tersebut berjalan sebelum useEffect
+
+  Behavior dari useLayoutEffect,
+    - fungsi berjalan sebelum useEffect berjalan, sama seperti componentDidMount dan componentDidUpdate
+
+
+=> React.useContext, createContext, fungsi untuk membuat sebuah penyimpanan data yang bisa digunakan pada component child,
+
+  Behavior dari useContext,
+    - data dari parent tidak perlu di lempar sebagai props di child component
+
+
